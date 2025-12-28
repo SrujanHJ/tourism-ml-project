@@ -10,7 +10,7 @@ import os
 
 DATA_PATH = "data/processed/train.csv"
 MODEL_PATH = "best_model.pkl"
-MODEL_REPO = "srujanhj/tourism_model"
+MODEL_REPO = "srujanhj/tourism_wellness_best_model"
 
 def train_model():
     print("==== Training Model ====")
