@@ -1,20 +1,29 @@
-# scripts/data_prep.py
-from datasets import load_dataset
 import pandas as pd
+from datasets import load_dataset
+import os
+from sklearn.model_selection import train_test_split
+
+DATASET_REPO = "srujanhj/tourism_package_dataset"
 
 def main():
-    print("==== Data Preparation Started ====")
-
-    dataset = load_dataset("srujanhj/tourism_package_dataset")
+    print("==== Loading Dataset from HuggingFace Hub ====")
+    dataset = load_dataset(DATASET_REPO)
     df = dataset["train"].to_pandas()
 
-    # Basic cleaning
+    print("==== Cleaning ====")
+    df = df.drop(columns=["CustomerID"], errors="ignore")
     df = df.dropna()
 
-    # Save processed file
-    df.to_csv("processed_data.csv", index=False)
+    os.makedirs("data/processed", exist_ok=True)
 
-    print("Processed dataset saved as processed_data.csv")
+    train, test = train_test_split(df, test_size=0.2, random_state=42)
+
+    train.to_csv("data/processed/train.csv", index=False)
+    test.to_csv("data/processed/test.csv", index=False)
+
+    print("Saved:")
+    print(" data/processed/train.csv")
+    print(" data/processed/test.csv")
 
 if __name__ == "__main__":
     main()
