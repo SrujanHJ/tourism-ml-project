@@ -6,7 +6,9 @@ from sklearn.metrics import accuracy_score
 from huggingface_hub import HfApi, upload_file
 import os
 
-DATA_PATH = "data/processed_data.csv"
+
+DATA_PATH = "data/processed/train.csv"
+
 MODEL_REPO = "srujanhj/tourism_model"
 MODEL_NAME = "best_model.pkl"
 
