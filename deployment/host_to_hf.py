@@ -6,7 +6,7 @@ api = HfApi()
 space_repo = "srujanhj/tourism-wellness-space"
 
 api.upload_folder(
-    folder_path="tourism_project/deployment",
+    folder_path="deployment", 
     repo_id=space_repo,
     repo_type="space",
     token=os.getenv("HF_TOKEN")
