@@ -7,7 +7,7 @@ st.set_page_config(page_title="Tourism Package Purchase Prediction", layout="cen
 
 @st.cache_resource
 def load_model():
-    repo_id = "srujanhj/tourism_model"  
+    repo_id = "srujanhj/tourism_wellness_best_model"  
     filename = "best_model.pkl"        
     model_path = hf_hub_download(repo_id=repo_id, filename=filename)
     model = joblib.load(model_path)
