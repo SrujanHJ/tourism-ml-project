@@ -3,10 +3,11 @@ import os
 
 api = HfApi()
 
-space_repo = "srujanhj/tourism-wellness-space"
+# Correct repo name
+space_repo = "srujanhj/tourism-wellness-prediction"
 
 api.upload_folder(
-    folder_path="deployment", 
+    folder_path="tourism_project/deployment",
     repo_id=space_repo,
     repo_type="space",
     token=os.getenv("HF_TOKEN")
